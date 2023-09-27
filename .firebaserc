@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-dfdd8": {
+      "hosting": {
+        "FireBlog": [
+          "angular-dfdd8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-dfdd8"
+  }
+}
