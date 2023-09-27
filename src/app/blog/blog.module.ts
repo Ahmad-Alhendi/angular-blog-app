@@ -4,7 +4,21 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
-import { SharedModule } from '../shared/shared.module';
+import { DropdownModule } from 'primeng/dropdown';
+import { TagModule } from 'primeng/tag';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TableModule } from 'primeng/table';
+import { FormsModule } from '@angular/forms';
+import { BlogRoutingModule } from './blog-routing.module';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { SliderModule } from 'primeng/slider';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MenuModule } from 'primeng/menu';
+import { ToastModule } from 'primeng/toast';
+import { ToolbarModule } from 'primeng/toolbar';
+import { TooltipModule } from 'primeng/tooltip';
+import { SlideMenuModule } from 'primeng/slidemenu';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,8 +28,22 @@ import { SharedModule } from '../shared/shared.module';
     PostDetailComponent
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
-    SharedModule,
+    BlogRoutingModule,
+    DropdownModule,
+    TagModule,
+    MultiSelectModule,
+    TableModule,
+    FormsModule,
+    ProgressBarModule,
+    SliderModule,
+    BrowserAnimationsModule,
+    MenuModule,
+    ToastModule,
+    ToolbarModule,
+    TooltipModule,
+    SlideMenuModule
     ]
   
 })
