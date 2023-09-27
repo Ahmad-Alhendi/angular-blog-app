@@ -19,6 +19,8 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { HttpClientModule } from '@angular/common/http';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { HttpClientModule } from '@angular/common/http';
     ToastModule,
     ToolbarModule,
     TooltipModule,
-    SlideMenuModule
+    SlideMenuModule,
+    ButtonModule,
+    DialogModule
     ]
   
 })

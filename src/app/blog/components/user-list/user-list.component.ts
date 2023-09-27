@@ -13,16 +13,19 @@ export class UserListComponent implements OnInit {
     constructor(private _blogService: BlogService) { };
 
     filteredUsers!: user[];
-    allUsres!: user[];
+    allUsers!: user[];
+    selectedUsers?: user;
     representatives?: ProfileInfo[];
     loading: boolean = true;
     items!: MenuItem[];
-    activeItem:any;
+    activeItem: any;
+    visible: boolean = false;
+    isEditMode: boolean = false;
 
     ngOnInit() {
         this._blogService.getUsers().subscribe(res => {
             this.filteredUsers = res.users;
-            this.allUsres = res.users;
+            this.allUsers = res.users;
             this.representatives = res.users.map((item: user) => ({
                 name: item.firstName,
                 image: item.image,
@@ -43,24 +46,60 @@ export class UserListComponent implements OnInit {
                 command: () => {
                     this.deleteUser(this.activeItem);
                 }
+            },
+            {
+                label: 'More Details',
+                icon: 'pi pi-eye',
+                command: () => {
+                    this.viewMoreDetails(this.activeItem);
+                }
             }
         ];
     }
 
     filterUsersByImage(value: ProfileInfo[]) {
         if (value.length > 0) {
-            this.filteredUsers = this.allUsres.filter(customer => {
+            this.filteredUsers = this.allUsers.filter(customer => {
                 return value.some(rep => rep.image === customer.image);
             });
         }
         else {
-            this.filteredUsers = this.allUsres;
+            this.filteredUsers = this.allUsers;
         }
     }
 
-    editUser(userId?:number){
+    editUser(userId?: number) {
+        const user = this.allUsers.find(i => i.id === userId);
+        if (user) {
+            this.selectedUsers = { ...user };
+        }
+        this.isEditMode = true;
+        this.showDialog()
     }
- 
-    deleteUser(userId?:number){
+
+    updateUserData(userData: user | any) {
+        const userIndex = this.allUsers.findIndex(user => user.id === userData.id);
+        if (userIndex !== -1) {
+            this.allUsers[userIndex] = userData;
+        } 
+        this.visible = false;
+    }
+
+
+    deleteUser(userId?: number) {
+        const indexToRemove = this.allUsers.findIndex(item => item.id == userId);
+        if (indexToRemove !== -1) {
+            this.allUsers.splice(indexToRemove, 1);
+        }
+    }
+
+    viewMoreDetails(userId?: number) {
+        this.selectedUsers = this.allUsers.find(i => i.id == userId);
+        this.isEditMode = false;
+        this.showDialog()
+    }
+
+    showDialog() {
+        this.visible = true;
     }
 }

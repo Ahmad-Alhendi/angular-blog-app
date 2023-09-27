@@ -1,1 +1,74 @@
-<p>user-detail works!</p>
+<div class="container" *ngIf="userDetails">
+    <form action="#" >
+        <div class="form first">
+            <div>
+                <h2 class="title">Person  Details</h2>
+                <div class="fields">
+                    <div class="input-field">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Enter First name" required [(ngModel)]="userDetails.firstName" name="firstName" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Enter Last name" required [(ngModel)]="userDetails.lastName" name="lastName" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>Age</label>
+                        <input type="number" placeholder="Enter Age" required [(ngModel)]="userDetails.age" name="age" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter Email" required [(ngModel)]="userDetails.email" name="email" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>Phone</label>
+                        <input type="text" placeholder="Enter Phone Number" required [(ngModel)]="userDetails.phone" name="phone" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>User Name</label>
+                        <input type="text" placeholder="Enter User Name" required [(ngModel)]="userDetails.userName" name="userName" [disabled]="!isEditMode">
+                    </div>
+
+                    <div class="input-field">
+                        <label>Date of Birth</label>
+                        <input type="date" placeholder="Enter birth date" required [(ngModel)]="userDetails.birthDate" name="dateOfBirth" [disabled]="!isEditMode">
+                    </div>
+                    <div class="input-field">
+                        <label>Gender</label>
+                        <select required [(ngModel)]="userDetails.gender" name="gender" [disabled]="!isEditMode">
+                            <option [ngValue]="'male'">Male</option>
+                            <option [ngValue]="'female'">Female</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-details">
+                <h2 class="title mt-1">Company  Details</h2>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Address</label>
+                        <input type="text" placeholder="Enter Address" required [(ngModel)]="userDetails.company.address.address" name="address" [disabled]="!isEditMode">
+                    </div>
+
+                    <div class="input-field">
+                        <label>City</label>
+                        <input type="text" placeholder="Enter City" required [(ngModel)]="userDetails.company.address.city" name="city" [disabled]="!isEditMode">
+                    </div>
+                    
+                    <div class="input-field">
+                        <label>Postal Code</label>
+                        <input type="text" placeholder="Enter Postal Code" required [(ngModel)]="userDetails.company.address.postalCode" name="postalCode" [disabled]="!isEditMode">
+                    </div>
+
+                    <div class="input-field">
+                        <label>State</label>
+                        <input type="text" placeholder="Enter State" required [(ngModel)]="userDetails.company.address.state" name="state" [disabled]="!isEditMode">
+                    </div>
+                </div>
+            </div> 
+            <p-button label="Submit" class="p-button-success"  (onClick)="onsubmit()"></p-button>
+        </div>
+    </form>
+</div>
