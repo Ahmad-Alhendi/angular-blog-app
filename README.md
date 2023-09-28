@@ -1,27 +1,82 @@
-# FireBlog
+# Fire Blog App - User and Post Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+This Angular application is designed to manage users and posts. It provides features for listing users in a paginated table and displaying posts as cards. Users can perform various actions on both users and posts, including updating, deleting,Exporting and viewing more details for users, and reacting, commenting, sharing, updating, and deleting posts.
 
-## Development server
+## Table of Contents
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Design Decisions](#design-decisions)
+- [Contributing](#contributing)
+- [License](#license)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+### User Management
+- List users in a paginated table
+- View detailed information about a user
+- -Export Users List As (PDF/ Excel)
+- Update user information
+- Delete user accounts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Post Management
+- Display posts as cards
+- View post details including title, body, and reactions
+- React to posts
+- Comment on posts
+- Share posts
+- Update post content
+- Delete posts
 
-## Build
+## Getting Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Prerequisites
 
-## Running unit tests
+Before you begin, ensure you have met the following requirements:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js and npm installed (You can download them from https://nodejs.org/).
 
-## Running end-to-end tests
+### Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone this repository:
+   git clone https://github.com/Ahmad-Alhendi/angular-blog-app.git
+   cd angular-user-post-app
 
-## Further help
+# Usage
+User Management:
+Click on "Users" in the navigation menu to access the user management page.
+Use the table to view, update, or delete user accounts.
+Click on a user's Action - More Details to view more details.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Post Management:
+Click on "Posts" in the navigation menu to access the post management page.
+Browse through the list of posts displayed as cards.
+React, comment, share, update, or delete posts as needed.
+Click on a post card to view more details about the post.
+
+## Design Decisions
+
+### UI Framework Choice
+
+In this Angular application, we have chosen to leverage the PrimeNG library for building the user interface components. The decision to use PrimeNG was made based on several key factors:
+
+1. **Rich Set of UI Components**: PrimeNG offers a comprehensive collection of UI components, including tables, cards, and various form elements, which align with the requirements of our user and post management features.
+
+2. **Customization and Theming**: PrimeNG allows for easy customization and theming of UI components, ensuring that we can maintain a consistent and visually appealing design throughout the application.
+
+3. **Community Support**: PrimeNG has a vibrant and active community, which means access to regular updates, bug fixes, and a wealth of resources for troubleshooting and extending the library's functionality.
+
+4. **Angular Integration**: PrimeNG is built specifically for Angular, providing seamless integration and compatibility with Angular projects.
+
+By using PrimeNG, we aim to accelerate the development process and deliver a polished and user-friendly interface for managing users and posts in our Angular application.
+
+# Contributing
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+Fork the repository.
+Create a new branch for your feature or bug fix.
+Make your changes and commit them with clear and meaningful messages.
+Push your changes to your fork.
+Submit a pull request to the original repository.
+
