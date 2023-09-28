@@ -1,5 +1,5 @@
 <div class="grid mt-3">
-  <div class="col-3 d-flex" *ngFor="let post of posts.slice(first, first + rows)">
+  <div class="col-3 d-flex" *ngFor="let post of posts">
     <p-card id="postCard" class="border-300 surface-overlay border-3 border-round font-bold m-2 flex align-items-center justify-content-center" header="{{post.title}}" [style]="{ width: '380px',height: '500px' }">
       <p id="cardBody">
         {{post.body}}
@@ -36,4 +36,9 @@
   </div>
 
 </div>
-<p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="totalRecords" ></p-paginator>
+<p-paginator [rowsPerPageOptions]="[10, 25, 50]"
+             (onPageChange)="onPageChange($event)"
+             [first]="first"
+             [rows]="rows"
+             [totalRecords]="totalRecords">
+</p-paginator>

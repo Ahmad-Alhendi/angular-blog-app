@@ -28,19 +28,14 @@ export class UserListComponent implements OnInit {
   paging?: PageEvent;
   cols!: Column[];
   exportColumns!: ExportColumn[];
+  totalRecords!: number;
 
   ngOnInit() {
     this.prepareExportableColumns();
-    this._blogService.getUsers().subscribe(res => {
-      this.filteredUsers = res.users;
 
-      this.allUsers = res.users;
-      this.representatives = res.users.map((item: user) => ({
-        name: item.firstName,
-        image: item.image,
-      }));
-      this.loading = false;
-    });
+    this.paging = { first: this.first, rows: this.rows };
+    this.getAllUsers(this.paging);
+
     this.items = [
       {
         label: 'Edit',
@@ -68,6 +63,7 @@ export class UserListComponent implements OnInit {
   onPageChange(event: PageEvent | any) {
     this.first = event.first;
     this.rows = event.rows;
+    this.getAllUsers(event);
   }
   filterUsersByImage(value: ProfileInfo[]) {
     if (value.length > 0) {
@@ -111,6 +107,20 @@ export class UserListComponent implements OnInit {
     this.showDialog()
   }
 
+  getAllUsers(paging?: PageEvent) {
+    this._blogService.getUsers(paging).subscribe(res => {
+      debugger
+      this.filteredUsers = res.users;
+      this.allUsers = res.users;
+      this.totalRecords = res.total;
+
+      this.representatives = res.users.map((item: user) => ({
+        name: item.firstName,
+        image: item.image,
+      }));
+      this.loading = false;
+    });
+  }
   showDialog() {
     this.visible = true;
   }
@@ -123,7 +133,6 @@ export class UserListComponent implements OnInit {
       { field: 'phone', header: 'phone' }
     ];
     this.exportColumns = this.cols.map((col) => ({ title: col.header, dataKey: col.field }));
-
   }
   exportPdf() {
     import('jspdf').then((jsPDF) => {

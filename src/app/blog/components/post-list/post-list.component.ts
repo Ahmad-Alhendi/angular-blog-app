@@ -21,16 +21,16 @@ export class PostListComponent implements OnInit {
   first: number = 0;
   rows: number = 10;
   totalRecords!: number;
+  paging!: PageEvent;
   ngOnInit() {
 
     this.postDataService.getPostData().subscribe((postData: Post) => {
       this.posts.unshift(postData);
     });
 
-    this._blogService.getPosts().subscribe(res => {
-      this.posts = res.posts;
-      this.totalRecords = res.limit;
-    });
+    this.paging = { first: this.first, rows: this.rows };
+
+    this.getAllPosts(this.paging);
     this.items = [
       {
         label: 'whatsapp',
@@ -53,6 +53,12 @@ export class PostListComponent implements OnInit {
 
       }
     ];
+  }
+  getAllPosts(paging?: PageEvent) {
+    this._blogService.getPosts(paging).subscribe(res => {
+      this.posts = res.posts;
+      this.totalRecords = res.total;
+    });
   }
   editPost(postId: number) {
     const post = this.posts.find(i => i.id === postId);
@@ -80,5 +86,6 @@ export class PostListComponent implements OnInit {
   onPageChange(event: PageEvent | any) {
     this.first = event.first;
     this.rows = event.rows;
+    this.getAllPosts(event);
   }
 }

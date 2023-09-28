@@ -5,12 +5,12 @@
     "\\src\\app",
     "\\src\\app\\blog",
     "\\src\\app\\blog\\components",
-    "\\src\\app\\blog\\components\\user-detail",
+    "\\src\\app\\blog\\components\\post-detail",
+    "\\src\\app\\blog\\components\\post-list",
+    "\\src\\app\\blog\\components\\user-list",
     "\\src\\app\\blog\\models",
-    "\\src\\app\\blog\\services",
-    "\\src\\app\\components",
-    "\\src\\app\\components\\home"
+    "\\src\\app\\blog\\routing keys"
   ],
-  "SelectedNode": "\\src\\app\\components\\home\\home.component.html",
+  "SelectedNode": "\\src\\app\\blog\\components\\user-list\\user-list.component.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -9,11 +9,11 @@ export class BlogService {
 
   constructor(private http: HttpClient) { };
 
-  getUsers() {
-    return this.http.get<any>('https://dummyjson.com/users');
+  getUsers(paging?: PageEvent) {
+    return this.http.get<any>(`https://dummyjson.com/users?skip=${paging?.first}&limit=${paging?.rows}`);
   }
-  getPosts() {
-    return this.http.get<any>('https://dummyjson.com/posts');
+  getPosts(paging?: PageEvent) {
+    return this.http.get<any>(`https://dummyjson.com/posts?skip=${paging?.first}&limit=${paging?.rows}`);
   }
 
 }
