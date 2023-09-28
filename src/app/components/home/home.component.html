@@ -1,0 +1,15 @@
+
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" />
+  </ng-template>
+</p-menubar>
+<div class="card flex justify-content-center">
+  <p-dialog header="Post management" [(visible)]="visible" [style]="{ 'width': '45vw', 'border': '3px solid gray' }">
+    <app-post-detail #postDetail
+                     [isEditMode]=true
+                       (updatePostData)="updatePostData($event)">
+    </app-post-detail>
+
+  </p-dialog>
+</div>

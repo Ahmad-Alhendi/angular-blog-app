@@ -115,7 +115,6 @@ export class UserListComponent implements OnInit {
     this.visible = true;
   }
   prepareExportableColumns() {
-    debugger
     this.cols = [
       { field: 'firstName', header: 'firstName' },
       { field: 'lastName', header: 'lastName' },

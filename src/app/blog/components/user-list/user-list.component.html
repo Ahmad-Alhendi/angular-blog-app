@@ -93,8 +93,11 @@
                 (click)="activeItem = user.id;menu.toggle($event)">
           Action
         </button>
-        <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="250"
-                     [menuWidth]="175"></p-slideMenu>
+        <p-slideMenu #menu [model]="items"
+                     [popup]="true"
+                     [viewportHeight]="250"
+                     [menuWidth]="175">
+        </p-slideMenu>
       </td>
     </tr>
   </ng-template>

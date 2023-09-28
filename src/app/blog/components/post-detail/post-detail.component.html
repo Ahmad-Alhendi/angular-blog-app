@@ -1,1 +1,22 @@
-<p>post-detail works!</p>
+<div class="">
+  <form action="#">
+    <div class="form first">
+      <div>
+        <div class="fields">
+          <div class="input-field width-auto">
+            <label>Title</label>
+            <input type="text" class="text-xl" placeholder="Enter Title" required name="title" [(ngModel)]="postDetails.title" [disabled]="!isEditMode">
+          </div>
+          <div class="input-field grid width-auto">
+            <label>Body</label>
+            <textarea class="p-3 text-xl" id="body" name="body" [(ngModel)]="postDetails.body" rows="10" cols="50" [disabled]="!isEditMode"></textarea>
+          </div>
+          <div class="input-field">
+          </div>
+        </div>
+      </div>
+
+      <p-button label="Submit" class="p-button-success" (onClick)="ouSubmit()" *ngIf="isEditMode"></p-button>
+    </div>
+  </form>
+</div>

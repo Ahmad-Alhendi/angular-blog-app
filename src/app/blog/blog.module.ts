@@ -21,6 +21,12 @@ import { SlideMenuModule } from 'primeng/slidemenu';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { PostDataService } from '../sherd/post-data.service';
+import { PaginatorModule } from 'primeng/paginator';
+
 
 @NgModule({
   declarations: [
@@ -47,8 +53,15 @@ import { DialogModule } from 'primeng/dialog';
     TooltipModule,
     SlideMenuModule,
     ButtonModule,
-    DialogModule
-    ]
-  
+    DialogModule,
+    CardModule,
+    InputTextModule,
+    InputTextareaModule,
+    PaginatorModule
+  ],
+  exports: [
+    PostDetailComponent
+  ],
+  providers: [PostDataService],
 })
 export class BlogModule { }

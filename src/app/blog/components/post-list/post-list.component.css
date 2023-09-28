@@ -1,0 +1,28 @@
+#postCard {
+  display: contents;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+#cardBody {
+  max-height: 15em;
+  min-height: 15em;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+#reactions {
+  color: red;
+}
+#editPostButton
+{
+    display:flex;
+    justify-content:end;
+    padding:1em;
+}
+.background-none {
+  background: none !important;
+}

@@ -18,6 +18,14 @@ export class user {
     image!: string;
     company!: Company;
 }
+  export class Post {
+    id!: number;
+    title!: string;
+    body!: string;
+    userId!: number;
+    tags!: string[];
+    reactions: number=0;
+}
 
 export class Company {
     address!: Address;

@@ -3,14 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { PageEvent } from '../models/blog-model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class BlogService {
 
-    constructor(private http: HttpClient) { };
+  constructor(private http: HttpClient) { };
 
   getUsers() {
-        return this.http.get<any>('https://dummyjson.com/users');
-    }
+    return this.http.get<any>('https://dummyjson.com/users');
+  }
+  getPosts() {
+    return this.http.get<any>('https://dummyjson.com/posts');
+  }
 
 }

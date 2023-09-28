@@ -5,19 +5,23 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogModule } from './blog/blog.module';
 import { MenubarModule } from 'primeng/menubar';
+import { DialogModule } from 'primeng/dialog';
+import { PostDataService } from './sherd/post-data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BlogModule,
-    MenubarModule
+    MenubarModule,
+    DialogModule
   ],
-  providers: [],
+  providers: [PostDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

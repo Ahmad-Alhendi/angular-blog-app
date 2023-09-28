@@ -1,1 +1,39 @@
-<p>post-list works!</p>
+<div class="grid mt-3">
+  <div class="col-3 d-flex" *ngFor="let post of posts.slice(first, first + rows)">
+    <p-card id="postCard" class="border-300 surface-overlay border-3 border-round font-bold m-2 flex align-items-center justify-content-center" header="{{post.title}}" [style]="{ width: '380px',height: '500px' }">
+      <p id="cardBody">
+        {{post.body}}
+      </p>
+      <ng-template pTemplate="header">
+        <div id="editPostButton">
+          <button type="button" style="font-weight:bolder;border:none" id="comment" class="pi pi pi-fw pi-pencil background-none" (click)="editPost(post.id)"></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="">
+        <br />
+        <hr />
+        <button type="button" (click)="post.reactions = post.reactions + 1" id="reactions" style="border: none" class="pi pi-heart-fill background-none"></button>
+        <strong>{{ post.reactions }}</strong>        <button type="button" style="font-weight:bolder;border:none" id="comment" class="pi pi-comment m-3 background-none"></button>
+        <button type="button" style="font-weight:bolder;border:none" id="comment" class="pi pi-share-alt background-none" (click)="menu.toggle($event)"></button>
+        <button type="button" (click)="deletePost(post.id)" style="border: none" class="pi pi-trash m-3 background-none"></button>
+
+        <p-slideMenu #menu [model]="items"
+                     [popup]="true"
+                     [viewportHeight]="250"
+                     [menuWidth]="175">
+        </p-slideMenu>
+      </ng-template>
+    </p-card>
+  </div>
+  <div class="card flex justify-content-center background-none">
+    <p-dialog header="Post management" [(visible)]="visible" [style]="{ 'width': '45vw', 'border': '3px solid gray' }">
+      <app-post-detail [postDetails]="selectedPost"
+                       [isEditMode]="isEditMode"
+                       (updatePostData)="updatePostData($event)">
+      </app-post-detail>
+
+    </p-dialog>
+  </div>
+
+</div>
+<p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="totalRecords" ></p-paginator>
