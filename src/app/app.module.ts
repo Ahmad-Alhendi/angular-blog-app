@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogModule } from './blog/blog.module';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { BlogModule } from './blog/blog.module';
     BrowserModule,
     AppRoutingModule,
     BlogModule,
-
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

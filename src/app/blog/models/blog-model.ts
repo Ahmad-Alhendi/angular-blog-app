@@ -31,3 +31,16 @@ export class Address {
     postalCode!: string;
     state!: string;
 }
+export interface PageEvent {
+  first: number;
+  rows: number;
+}
+export interface Column {
+  field: string;
+  header: string;
+  customExportHeader?: string;
+}
+export interface ExportColumn {
+  title: string;
+  dataKey: string;
+}

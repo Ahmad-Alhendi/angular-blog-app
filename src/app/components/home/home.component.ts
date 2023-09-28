@@ -7,8 +7,8 @@ import { MenuItem } from 'primeng/api';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-   public items: MenuItem[] | undefined;
+  public items: MenuItem[] | undefined;
 
-   ngOnInit() {
-   }
+  ngOnInit() {
+  }
 }
